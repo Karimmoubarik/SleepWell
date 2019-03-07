@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SleepWell</string>
+    <string name="welcome_text">Welcome to the SleepWell app!</string>
+    <string name="info1">How much do you want to sleep?</string>
+    <string name="info2">What time you need to wake up tomorrow?</string>
+    <string name="message1">You want to sleep this many hours:</string>
+    <string name="message2">And you need to wake up at:</string>
+    <string name="message3">So you need to go to sleep at this time:</string>
+    <string name="message4">So you need to go to sleep at this time:</string>
+
+</resources>
