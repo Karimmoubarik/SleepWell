@@ -21,44 +21,21 @@ public class DisplaySavedInfo extends AppCompatActivity {
         int hours = intent.getIntExtra(Input_Activity.HOURS, 0);
         int minutes = intent.getIntExtra(Input_Activity.MINUTES, 0);
 
+        Log.i("SleepWell", Integer.toString(sleep_amount));
+
 
         TextView textView = findViewById(R.id.textView5);
         TextView tv = findViewById(R.id.textView6);
         TextView tv3 = findViewById(R.id.textView11);
 
 
-
+        String hour = String.format("%02d",(hours));
+        String minute = String.format("%02d",(minutes));
         textView.setText(Integer.toString(sleep_amount));
-        tv.setText(Integer.toString(hours)+":"+Integer.toString(minutes));
-        LocalTime l1 = LocalTime.parse(Integer.toString(hours)+":"+Integer.toString(minutes));
-        Log.i("SleepWell", l1.minusHours(sleep_amount).toString());
+        tv.setText((hours)+":"+(minutes));
+        LocalTime l1 = LocalTime.parse(hour+":"+minute);
+      //  Log.i("SleepWell", l1.minusHours(sleep_amount).toString());
         tv3.setText(l1.minusHours(sleep_amount).toString());
-
-        /*nukkumaan = hours1 - sleep_amount1;
-        if (nukkumaan < 0){
-            nukkumaan = nukkumaan + 24;
-        }
-
-        if (nukkumaan == 0){
-
-            tv3.setText( "0"+Integer.toString(nukkumaan)+ " :" + minutes);
-
-        }
-        if(  minutes1 < 10)
-        {
-            tv3.setText( Integer.toString(nukkumaan)+ " :0" + minutes);
-
-        }
-        if (nukkumaan == 0 && minutes1 < 10){
-
-            tv3.setText( Integer.toString(nukkumaan)+ " :0" + minutes);
-
-
-        }
-        else
-
-        tv3.setText("0"+Integer.toString(nukkumaan) + " :0" + minutes);
-*/
 
         }
 

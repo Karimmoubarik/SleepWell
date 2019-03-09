@@ -1,6 +1,9 @@
 package com.example.sleepwell;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -43,7 +46,10 @@ public class Input_Activity extends AppCompatActivity {
         EditText editText = (EditText) findViewById(R.id.sleepAmount);
 
         String sleepAmount = editText.getText().toString();
-        int sleepAmountInt = Integer.parseInt(sleepAmount);
+        int sleepAmountInt = -1;
+        if(!sleepAmount.equals("")) {
+            sleepAmountInt = Integer.parseInt(sleepAmount);
+        }
 
         int hours = timePicker1.getHour();
         //String hours_string = Integer.toString(hours);
@@ -60,10 +66,16 @@ public class Input_Activity extends AppCompatActivity {
         intent.putExtra(SLEEP_AMOUNT, sleepAmountInt);
         intent.putExtra(HOURS, hours);
         intent.putExtra(MINUTES, minutes);
-        startActivity(intent);
-
-
-
+        if(sleepAmountInt != -1) {
+            startActivity(intent);
+        } else {
+            new AlertDialog.Builder(this)
+                    .setTitle("Set sleep amount")
+                    .setMessage("Remember to set the sleep amount.")
+                    .setNeutralButton(android.R.string.ok, null)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+        }
     }
 
 
